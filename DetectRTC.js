@@ -850,6 +850,34 @@
         });
     }
 
+
+    /**
+     * 获取RTC发送器支持的视频编解码列表
+     * 
+     * @returns RTP Sender video codecs, json Array [{clockRate:"", mimeType:"", sdpFmtpLine:""}]
+     */
+    function videoSenderCodecs() {
+        if (RTCRtpSender && RTCRtpSender.getCapabilities("video")) {
+            return RTCRtpSender.getCapabilities("video").codecs;
+        } else {
+            return [];
+        }
+    }
+
+    /**
+     * 获取RTC接收器支持的视频编解码列表
+     * 
+     * @returns RTP Receiver video codecs, json Array [{clockRate:"", mimeType:"", sdpFmtpLine:""}]
+     */
+    function videoReceiverCodecs() {
+        if (RTCRtpReceiver && RTCRtpReceiver.getCapabilities("video")) {
+            return RTCRtpReceiver.getCapabilities("video").codecs;
+        } else {
+            return [];
+        }
+    }
+
+    
     var DetectRTC = window.DetectRTC || {};
 
     // ----------
