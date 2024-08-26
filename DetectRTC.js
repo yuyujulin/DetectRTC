@@ -877,9 +877,12 @@
         }
     }
 
-    
     var DetectRTC = window.DetectRTC || {};
 
+        // 绑定支持的视频编解码列表属性
+    DetectRTC.videoSenderCodecs = videoSenderCodecs();
+    DetectRTC.videoReceiverCodecs = videoReceiverCodecs();
+    
     // ----------
     // DetectRTC.browser.name || DetectRTC.browser.version || DetectRTC.browser.fullVersion
     DetectRTC.browser = getBrowserInfo();
