@@ -164,6 +164,34 @@
                     appendTR('Display resolutions', printVal(DetectRTC.displayResolution), 'displayResolution');
                     appendTR('Display aspect ratio', printVal(DetectRTC.displayAspectRatio), 'displayAspectRatio');
 
+                    output = '';
+                    if (DetectRTC.videoSenderCodecs.length > 0) {
+                        var codecList = DetectRTC.videoSenderCodecs;
+                        for (var i = 0; i < codecList.length; i++ ){
+                            output += i + ":{";
+                            for (var t in codecList[i]) {
+                                output += t + ":" + codecList[i][t] + ",";
+                            }
+                            output = output.slice(0, output.length-1);
+                            output += "}<br/>";                    
+                        }
+                        appendTR('RTP Sender video codecs', output, 'videoSenderCodes');
+                    }
+
+                    output = '';
+                    if (DetectRTC.videoReceiverCodecs.length > 0) {
+                        var codecList = DetectRTC.videoReceiverCodecs;
+                        for (var i = 0; i < codecList.length; i++ ){
+                            output += i + ":{";
+                            for (var t in codecList[i]) {
+                                output += t + ":" + codecList[i][t] + ",";
+                            }
+                            output = output.slice(0, output.length-1);
+                            output += "}<br/>";             
+                        }
+                        appendTR('RTP Receiver video codecs', output, 'videoReceiverCodes');
+                    }
+                    
                     output = printVal(DetectRTC.hasSpeakers);
                     if(DetectRTC.audioOutputDevices.length) {
                         output += '<br>Found speaker devices: ' + DetectRTC.audioOutputDevices.length;
