@@ -6,15 +6,13 @@ jobs:
   copy-file:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout
-      uses: actions/checkout@v2
     - name: Push to Github pages
-  	  uses: nkoppel/push-files-to-another-repository@v1.1.3
-  	  env:
-  	    API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
-  	  with:
-  	    source-files: 'index.html DetectRTC.js'
-  	    destination-username: 'yuyujulin'
-  	    destination-repository: 'yuyujulin.github.io'
-  	    destination-directory: '.'
-  	    commit-email: 'yuyujulin@gmail.com'
+      uses: nkoppel/push-files-to-another-repository@v1.1.3
+      env:
+          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+      with:
+          source-files: 'index.html DetectRTC.js'
+          destination-username: 'yuyujulin'
+          destination-repository: 'yuyujulin.github.io'
+          destination-directory: '.'
+          commit-email: 'yuyujulin@gmail.com'
