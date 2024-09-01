@@ -8,15 +8,13 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v2
-
-    - name: Pushes test folder
-      uses: datalbry/copy_folder_to_another_repo_action@1.0.0
-      env:
-        API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
-      with:
-        source_folder: 'index.html'
-        destination_repo: 'yuyujulin/yuyujulin.github.io'
-        destination_folder: ''
-        user_email: 'yuyujulin@gmail.com'
-        user_name: 'yuyujulin'
-        commit_msg: 'Update detectrtc file'
+    - name: Push to Github pages
+  	  uses: nkoppel/push-files-to-another-repository@v1.1.3
+  	  env:
+  	    API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+  	  with:
+  	    source-files: 'index.html DetectRTC.js'
+  	    destination-username: 'yuyujulin'
+  	    destination-repository: 'yuyujulin.github.io'
+  	    destination-directory: '.'
+  	    commit-email: 'yuyujulin@gmail.com'
