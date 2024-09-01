@@ -14,7 +14,7 @@ jobs:
       env:
         API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
       with:
-        source_folder: 'test_files'
+        source_folder: 'index.html DetectRTC.js'
         destination_repo: 'yuyujulin/yuyujulin.github.io'
         destination_folder: './'
         user_email: 'devin.nemec@gmail.com'
