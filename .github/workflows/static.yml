@@ -1,4 +1,4 @@
-name: Push File
+name: Copy File To GitHub Pages
 
 on: push
 
